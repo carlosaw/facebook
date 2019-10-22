@@ -7,7 +7,7 @@ global $config;
 $config = array();
 
 if(ENVIRONMENT == 'development') {
-	//define("BASE_URL", "http://localhost/facebook/");
+	define("BASE_URL", "http://localhost/facebook/");
 	$config['dbname'] = 'facebook';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
