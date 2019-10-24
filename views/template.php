@@ -12,7 +12,7 @@
 			<div class="container">
 				<div id="navbar">
 					<ul class="nav navbar-nav navbar-left">
-						<li><a href="<?php echo BASE; ?>">Rede Social</a></li>
+						<li><a href="<?php echo BASE; ?>login">Rede Social</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="<?php echo BASE; ?>login/sair">Sair</a></li>

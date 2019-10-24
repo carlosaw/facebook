@@ -6,6 +6,7 @@ class homeController extends controller {
 		
 		$u = new Usuarios();
 		$u->verificarLogin();
+		
 	}
 	public function index() {
 		$dados = array();

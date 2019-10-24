@@ -13,10 +13,10 @@ if(ENVIRONMENT == 'development') {
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 } else {
-	//define("BASE_URL", "http://awregulagens.com.br/");
-	$config['dbname'] = '';
-	$config['host'] = '';
-	$config['dbuser'] = '';
+	define("BASE_URL", "http://awregulagens.com.br/");
+	$config['dbname'] = 'facebook';
+	$config['host'] = 'localhost';
+	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 }
 

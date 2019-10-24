@@ -1,36 +1,35 @@
 <?php
 class Usuarios extends model {
-
-	public function verificarLogin() {//Verifica se tem usuario logado ou não!
+    
+    public function verificarLogin() {
+        
+        //print_r($_SESSION);exit;
 		
-		//print_r($_SESSION);
-		//exit;
-		
-		//Se não existir a sessão ou existir e estiver vazia redireciona para o login
 		if(!isset($_SESSION['lgsocial']) || (isset($_SESSION['lgsocial']) && empty($_SESSION['lgsocial']))) {
 			header("Location: ".BASE."login");
 			exit;
 		}
-		
-		/*if(isset($_SESSION['lgsocial']) && !empty($_SESSION['lgsocial'])) {
-			return true;
-		} else {
-			return false;
-		}*/
+		if(isset($_POST['lgsocial']) && !empty($_POST['lgsocial'])) {
+			header("Location: ".BASE);
+			exit;
+		}
 	}
 
 	public function logar($email, $senha) {
 
 		$sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+		//print_r($sql);exit;
 		
 		$sql = $this->db->query($sql);
 		
 		if($sql->rowCount() > 0) {
+			
 			$sql = $sql->fetch();
-                        
+            $u = new Usuarios();           
+			
 			$_SESSION['lgsocial'] = $sql['id'];
 		
-			header("Location :".BASE);
+			header("Location: ".BASE);
 			exit;
 			
 		} else {
@@ -40,11 +39,14 @@ class Usuarios extends model {
 
 	public function cadastrar($nome, $email, $senha, $sexo) {
 
-		$sql = $this->db->query("SELECT * FROM usuarios WHERE email = '$email'");
+		$sql = "SELECT * FROM usuarios WHERE email = '$email'";
+		$sql = $this->db->query($sql);
 		
 		if($sql->rowCount() == 0) {
 
-			$sql = $this->db->query("INSERT INTO usuarios SET nome = '$nome', email = '$email', senha = MD5('$senha'), sexo = '$sexo'");
+			$sql = "INSERT INTO usuarios SET nome = '$nome', email = '$email', senha = MD5('$senha'), sexo = '$sexo'";
+			
+			$sql = $this->db->query($sql);
 			
 			$id = $this->db->lastInsertId();//Loga o usuario cadastrado
 			$_SESSION['lgsocial'] = $id;

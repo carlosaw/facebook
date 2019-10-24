@@ -13,11 +13,13 @@ class loginController extends controller {
 	public function entrar() {
 		$dados = array('erro'=>'');
 
-		if(isset($_POST['email']) && !empty($_POST['email'])) {
+		if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
 			$email = addslashes($_POST['email']);
 			$senha = md5($_POST['senha']);
-
+//print_r($email);
+//print_r($senha);exit;
 			$u = new Usuarios();
+//print_r($u);exit;
 			$dados['erro'] = $u->logar($email, $senha);
 		}
 
@@ -41,9 +43,15 @@ class loginController extends controller {
 	}
 
 	public function sair() {
+		
 		unset($_SESSION['lgsocial']);
-
-		header("Location :".BASE);
+		//print_r($_SESSION);exit;
+		//session_destroy();
+		// encerra o manipulador de sessão
+		//session_write_close();
+		//setcookie($cookie_name, '', time());
+		header("Location: ".BASE);
+		
 	}
 
 }
