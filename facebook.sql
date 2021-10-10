@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Out-2021 às 16:44
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.4.23
+-- Tempo de geração: 10-Out-2021 às 16:58
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -109,8 +109,18 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) DEFAULT '0',
   `nome` varchar(100) DEFAULT '0',
   `sexo` tinyint(4) DEFAULT 0,
-  `bio` text DEFAULT NULL
+  `bio` text DEFAULT NULL,
+  `senha` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `email`, `nome`, `sexo`, `bio`, `senha`) VALUES
+(1, 'carlos@gmail.com', 'Carlos Alberto', 1, 'Esta é minha biografia... Este sou quem sou.', '81dc9bdb52d04dc20036dbd8313ed055'),
+(2, 'ana@gmail.com', 'Ana Paula', 0, NULL, '81dc9bdb52d04dc20036dbd8313ed055'),
+(3, 'mara@gmail.com', 'Mara', 0, NULL, '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Índices para tabelas despejadas
@@ -202,7 +212,7 @@ ALTER TABLE `relacionamentos`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

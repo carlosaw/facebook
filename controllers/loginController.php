@@ -13,7 +13,7 @@ class loginController extends controller {
 	public function entrar() {
 		$dados = array('erro'=>'');
 
-		if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
+		if(isset($_POST['email']) && !empty($_POST['email'])) {
 			$email = addslashes($_POST['email']);
 			$senha = md5($_POST['senha']);
 //print_r($email);
@@ -32,7 +32,7 @@ class loginController extends controller {
 		if(isset($_POST['email']) && !empty($_POST['email'])) {
 			$nome = addslashes($_POST['nome']);
 			$email = addslashes($_POST['email']);
-			$senha = md5($_POST['senha']);
+			$senha = addslashes($_POST['senha']);
 			$sexo = addslashes($_POST['sexo']);
 			
 			$u = new Usuarios();

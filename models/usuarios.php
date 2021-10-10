@@ -1,10 +1,8 @@
 <?php
 class Usuarios extends model {
     
-    public function verificarLogin() {
-        
-        //print_r($_SESSION);exit;
-		
+    public function verificarLogin() {       
+      //print_r($_SESSION);exit;		
 		if(!isset($_SESSION['lgsocial']) || (isset($_SESSION['lgsocial']) && empty($_SESSION['lgsocial']))) {
 			header("Location: ".BASE."login");
 			exit;
@@ -25,7 +23,7 @@ class Usuarios extends model {
 		if($sql->rowCount() > 0) {
 			
 			$sql = $sql->fetch();
-            $u = new Usuarios();           
+      $u = new Usuarios();           
 			
 			$_SESSION['lgsocial'] = $sql['id'];
 		
@@ -58,4 +56,43 @@ class Usuarios extends model {
 		}
 	}
 
+	public function getNome($id) {
+		$sql = "SELECT nome FROM usuarios WHERE id = '$id'";
+		$sql = $this->db->query($sql);
+
+		if($sql->rowCount() > 0) {
+			$sql = $sql->fetch();
+
+			return $sql['nome'];
+		} else {
+			return '';
+		}
+	}
+
+	public function getDados($id) {
+		$array = array();
+		$sql = "SELECT * FROM usuarios WHERE id = '$id'";
+		$sql = $this->db->query($sql);
+
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetch();
+		} 
+		return $array;
+	}
+
+	public function updatePerfil($array = array()) {
+		if(count($array) > 0) {
+			$sql = "UPDATE usuarios SET ";
+
+			$campos = array();
+			foreach($array as $campo => $valor) {
+				$campos[] = $campo." = '".$valor."'";
+			}
+
+			$sql .= implode(', ', $campos);
+			$sql .= " WHERE id = '".($_SESSION['lgsocial'])."'";
+
+			$this->db->query($sql);
+		}
+	}
 }

@@ -3,9 +3,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Facebook</title>
-		
+		<title>Facebook</title>		
 		<link href="<?php echo BASE; ?>assets/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="shortcut icon" href="#" />
+		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -15,7 +17,16 @@
 						<li><a href="<?php echo BASE; ?>login">Rede Social</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="<?php echo BASE; ?>login/sair">Sair</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								<?php echo $viewData['usuario_nome']; ?>
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="<?php echo BASE; ?>perfil">Editar Perfil</a></li>
+								<li><a href="<?php echo BASE; ?>login/sair">Sair</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>

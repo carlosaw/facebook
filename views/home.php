@@ -1,1 +1,1 @@
-<h1>Usuário Logado!</h1>
+<h1>Usuário Logado! Página Home</h1>
