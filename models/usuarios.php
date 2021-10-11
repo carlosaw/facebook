@@ -95,4 +95,33 @@ class Usuarios extends model {
 			$this->db->query($sql);
 		}
 	}
+
+	public function getSugestoes($limit = 5) {
+		$array = array();
+		$meuid = $_SESSION['lgsocial'];
+
+		$sql = "
+		SELECT
+			usuarios.id,
+			usuarios.nome
+		FROM
+			usuarios
+		WHERE
+			usuarios.id != '$meuid' 
+		ORDER BY RAND()
+		LIMIT $limit
+		";
+		$sql = $this->db->query($sql);
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetchAll();
+		}
+
+		return $array;
+	}
+
+	public function addFriend($id1, $id2) {
+
+		$sql = "INSERT INTO relacionamentos SET usuario_de = '$id1', usuario_para = '$id2', status = '0'" ;
+		$this->db->query($sql);
+	}
 }

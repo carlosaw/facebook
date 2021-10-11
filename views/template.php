@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Facebook</title>		
 		<link href="<?php echo BASE; ?>assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo BASE; ?>assets/css/template.css" rel="stylesheet">
 		<link rel="shortcut icon" href="#" />
-		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/bootstrap.min.js"></script>
+		
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -36,5 +36,8 @@
 				$this->loadViewInTemplate($viewName, $viewData); 
 			?>
 		</div>
+		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/script.js"></script>
 	</body>
 </html>
