@@ -11,3 +11,15 @@
 .post_area textarea {
   height: 100px;
 }
+.postitem {
+  border: 1px solid #CCC;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.postitem_texto {
+  background-color: #EEE;
+  padding: 10px;
+}
+.postitem_comentario {
+  display: none;
+}

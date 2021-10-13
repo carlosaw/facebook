@@ -9,6 +9,14 @@
       </form>
     </div>
 
+    <div class="feed">
+      <?php
+        foreach($feed as $postitem){
+          $this->loadView('postitem', $postitem);
+        }
+      ?>
+    </div>
+
   </div>
 
   <div class="col-sm-4">

@@ -20,18 +20,19 @@ class homeController extends controller {
 		$dados['usuario_nome'] = $u->getNome($_SESSION['lgsocial']);
 		
 		if(isset($_POST['post']) && !empty($_POST['post'])) {
-				$postmsg = addslashes($_POST['post']);
-				$foto = array();
+			$postmsg = addslashes($_POST['post']);
+			$foto = array();
 
-				if(isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) {
-						$foto = $_FILES['foto'];
-				}
-				$p->addPost($postmsg, $foto);
+			if(isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) {
+					$foto = $_FILES['foto'];
+			}
+			$p->addPost($postmsg, $foto);
 		}
 		
 		$dados['sugestoes'] = $u->getSugestoes(3);
 		$dados['requisicoes'] = $r->getRequisicoes();
 		$dados['totalamigos'] = $r->getTotalAmigos($_SESSION['lgsocial']);
+		$dados['feed'] = $p->getFeed();
 		
 		$this->loadTemplate('home', $dados);
 	}
