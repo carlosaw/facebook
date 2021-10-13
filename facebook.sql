@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Out-2021 às 02:43
--- Versão do servidor: 10.4.17-MariaDB
--- versão do PHP: 7.4.13
+-- Tempo de geração: 13-Out-2021 às 23:05
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,7 +90,8 @@ INSERT INTO `posts` (`id`, `id_usuario`, `data_criacao`, `tipo`, `texto`, `url`,
 (7, 1, '2016-08-27 06:17:25', 'texto', 'Algum outro', '', 0),
 (8, 2, '2016-08-27 07:43:41', 'texto', 'Teste de postagem no grupo de Bonieky...', '', 2),
 (9, 1, '2016-08-27 07:44:57', 'texto', 'Que legal Fulano...', '', 2),
-(22, 1, '2021-10-12 20:38:29', 'foto', 'Até que enfim...', 'eef61dd4b388713570ee7edeac3b2fab.png', 0);
+(22, 1, '2021-10-12 20:38:29', 'foto', 'Até que enfim...', 'eef61dd4b388713570ee7edeac3b2fab.png', 0),
+(23, 2, '2021-10-13 09:53:21', 'texto', 'Postagens de fulano', '', 0);
 
 -- --------------------------------------------------------
 
@@ -111,7 +112,8 @@ CREATE TABLE `posts_comentarios` (
 --
 
 INSERT INTO `posts_comentarios` (`id`, `id_post`, `id_usuario`, `data_criacao`, `texto`) VALUES
-(1, 7, 1, '2016-08-27 06:56:24', 'Teste legal');
+(1, 7, 1, '2016-08-27 06:56:24', 'Teste legal'),
+(2, 23, 1, '2021-10-13 15:02:37', 'Comentado no post de Fulano');
 
 -- --------------------------------------------------------
 
@@ -133,7 +135,9 @@ INSERT INTO `posts_likes` (`id`, `id_post`, `id_usuario`) VALUES
 (2, 7, 2),
 (3, 7, 1),
 (4, 6, 1),
-(6, 2, 1);
+(6, 2, 1),
+(7, 0, 0),
+(11, 23, 1);
 
 -- --------------------------------------------------------
 
@@ -253,19 +257,19 @@ ALTER TABLE `grupos_membros`
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `posts_comentarios`
 --
 ALTER TABLE `posts_comentarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `posts_likes`
 --
 ALTER TABLE `posts_likes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `relacionamentos`
