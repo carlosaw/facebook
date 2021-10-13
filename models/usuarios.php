@@ -100,14 +100,21 @@ class Usuarios extends model {
 		$array = array();
 		$meuid = $_SESSION['lgsocial'];
 
-		$sql = "
-		SELECT
+		$r = new Relacionamentos();
+		$ids = $r->getIdsFriends($meuid);
+
+		if(count($ids) == 0) {
+			$ids[] = $meuid;
+		}
+
+		$sql = "SELECT	
 			usuarios.id,
 			usuarios.nome
 		FROM
-			usuarios
+			usuarios			
 		WHERE
-			usuarios.id != '$meuid' 
+			usuarios.id != '$meuid' AND
+			usuarios.id NOT IN (".implode(',', $ids).")
 		ORDER BY RAND()
 		LIMIT $limit
 		";
@@ -119,9 +126,5 @@ class Usuarios extends model {
 		return $array;
 	}
 
-	public function addFriend($id1, $id2) {
-
-		$sql = "INSERT INTO relacionamentos SET usuario_de = '$id1', usuario_para = '$id2', status = '0'" ;
-		$this->db->query($sql);
-	}
+	
 }
