@@ -23,3 +23,9 @@
 .postitem_comentario {
   display: none;
 }
+.postitem_comentarios {
+  border: 1px solid #ccc;
+}
+.postitem_comentarios li {
+  list-style: none;
+}

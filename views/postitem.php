@@ -17,6 +17,17 @@
       <input type="text" class="postitem_txt form-control" /><br/>
       <button class="btn btn-default" data-id="<?php echo $id; ?>" onclick="comentar(this)">Enviar</button><br/>
     </div>
+
     
+    <div class="postitem_comentarios" class="form-control">
+      <ul>
+        <?php foreach ($comentarios as $comentario):?>
+        <li>          
+          <?php echo $comentario['nome'].": ".$comentario['texto'];?>
+        </li>
+        <?php endforeach;?>
+      </ul>
+    </div>
+        
   </div>
 </div>

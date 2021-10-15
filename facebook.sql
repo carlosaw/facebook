@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Out-2021 às 23:05
+-- Tempo de geração: 15-Out-2021 às 17:09
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -90,7 +90,7 @@ INSERT INTO `posts` (`id`, `id_usuario`, `data_criacao`, `tipo`, `texto`, `url`,
 (7, 1, '2016-08-27 06:17:25', 'texto', 'Algum outro', '', 0),
 (8, 2, '2016-08-27 07:43:41', 'texto', 'Teste de postagem no grupo de Bonieky...', '', 2),
 (9, 1, '2016-08-27 07:44:57', 'texto', 'Que legal Fulano...', '', 2),
-(22, 1, '2021-10-12 20:38:29', 'foto', 'Até que enfim...', 'eef61dd4b388713570ee7edeac3b2fab.png', 0),
+(22, 1, '2021-10-12 20:38:29', 'foto', 'Até que enfim...', '91b1addbcc2f6b6e25e8742e096c971c.png', 0),
 (23, 2, '2021-10-13 09:53:21', 'texto', 'Postagens de fulano', '', 0);
 
 -- --------------------------------------------------------
@@ -113,7 +113,8 @@ CREATE TABLE `posts_comentarios` (
 
 INSERT INTO `posts_comentarios` (`id`, `id_post`, `id_usuario`, `data_criacao`, `texto`) VALUES
 (1, 7, 1, '2016-08-27 06:56:24', 'Teste legal'),
-(2, 23, 1, '2021-10-13 15:02:37', 'Comentado no post de Fulano');
+(2, 23, 1, '2021-10-13 15:02:37', 'Comentado no post de Fulano'),
+(3, 22, 3, '2021-10-15 10:21:06', 'Comentario de cicrano no post de Carlos Alberto');
 
 -- --------------------------------------------------------
 
@@ -263,7 +264,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de tabela `posts_comentarios`
 --
 ALTER TABLE `posts_comentarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `posts_likes`
