@@ -29,3 +29,8 @@
 .postitem_comentarios li {
   list-style: none;
 }
+.postitem_comentarios ul {
+  margin-top: 0;
+  margin-bottom: 0px;
+  padding: 5px;
+}

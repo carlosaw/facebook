@@ -42,6 +42,7 @@ class Posts extends model {
 		(select usuarios.nome from usuarios where usuarios.id = posts.id_usuario) as nome,
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id) as likes,
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id and posts_likes.id_usuario = '".$_SESSION['lgsocial']."') as liked,
+		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id) as comentado,
 		
 		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id) as comentarios
 		FROM posts
@@ -92,8 +93,8 @@ class Posts extends model {
 								 texto FROM posts_comentarios WHERE id_post = '$id_post'";
 			$sql = $this->db->query($sql);
 			$array = $sql->fetchAll();
-			//print_r($array);
-			//exit;
+			/*print_r($array);
+			exit;*/
 		return $array;
 	 }
 }

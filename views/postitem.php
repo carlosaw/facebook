@@ -18,7 +18,7 @@
       <button class="btn btn-default" data-id="<?php echo $id; ?>" onclick="comentar(this)">Enviar</button><br/>
     </div>
 
-    
+  <?php if($comentarios !== null): ?>
     <div class="postitem_comentarios" class="form-control">
       <ul>
         <?php foreach ($comentarios as $comentario):?>
@@ -28,6 +28,6 @@
         <?php endforeach;?>
       </ul>
     </div>
-        
+  <?php endif; ?>      
   </div>
 </div>
