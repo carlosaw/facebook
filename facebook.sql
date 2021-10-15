@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Out-2021 às 20:08
+-- Tempo de geração: 15-Out-2021 às 20:56
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -116,7 +116,10 @@ INSERT INTO `posts_comentarios` (`id`, `id_post`, `id_usuario`, `data_criacao`, 
 (1, 7, 1, '2016-08-27 06:56:24', 'Teste legal'),
 (2, 23, 1, '2021-10-13 15:02:37', 'Comentado no post de Fulano'),
 (3, 22, 3, '2021-10-15 10:21:06', 'Comentario de cicrano no post de Carlos Alberto'),
-(5, 8, 1, '2021-10-15 13:56:56', 'Comentei mais um post de fulkano');
+(5, 8, 1, '2021-10-15 13:56:56', 'Comentei mais um post de fulkano'),
+(7, 24, 2, '2021-10-15 14:34:59', 'Palavras ao vento para gertrânio'),
+(8, 2, 2, '2021-10-15 14:36:11', 'Agora quero ver...'),
+(9, 9, 2, '2021-10-15 14:55:46', 'Fecha logo esta div...');
 
 -- --------------------------------------------------------
 
@@ -268,7 +271,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de tabela `posts_comentarios`
 --
 ALTER TABLE `posts_comentarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `posts_likes`

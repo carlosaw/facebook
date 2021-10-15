@@ -67,4 +67,5 @@ function comentar(obj) {
     url:'ajax/comentar',
     data:{id:id, txt:txt}
   });
+  $(obj).closest('.postitem_botoes').find('.postitem_comentario').hide();
 }
