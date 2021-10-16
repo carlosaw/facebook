@@ -12,9 +12,10 @@
   height: 100px;
 }
 .postitem {
+  background-color: aliceblue;
   border: 1px solid #CCC;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 .postitem_texto {
   background-color: #EEE;
@@ -33,4 +34,7 @@
   margin-top: 0;
   margin-bottom: 0px;
   padding: 5px;
+}
+.postitem_comentarios_hidden {
+  display: none;
 }
