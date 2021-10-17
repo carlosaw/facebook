@@ -53,7 +53,7 @@ class Posts extends model {
 			$array = $sql->fetchAll();
 			foreach($array as $post) {
 				$post['comentarios'] = $this->buscarComentarios($post['id']);
-			/*	print_r($post['texto']);
+				/*print_r($post['comentarios']);
 				exit;*/
 				$posts[] = $post;
 			}
@@ -91,13 +91,19 @@ class Posts extends model {
 
 	public function buscarComentarios($id_post) {
 		$array = array();
-		$sql = "SELECT 
-								 (select usuarios.nome from usuarios where usuarios.id = posts_comentarios.id_usuario) AS nome,
-								 texto FROM posts_comentarios WHERE id_post = '$id_post'";
-			$sql = $this->db->query($sql);
+
+		$sql = "SELECT
+							*,
+							(select usuarios.nome from usuarios where usuarios.id = posts_comentarios.id_usuario) AS nome,
+							texto
+							FROM posts_comentarios
+							WHERE id_post = '$id_post'";
+		$sql = $this->db->query($sql);
 			$array = $sql->fetchAll();
 			/*print_r($array);
 			exit;*/
 		return $array;
-	 }
+	
+	}
+	 
 }

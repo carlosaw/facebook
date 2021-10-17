@@ -17,11 +17,10 @@
     
     <div class="postitem_comentario"><br/>
       <input type="text" class="postitem_txt form-control" />
-      <button class="btn btn-default" data-id="<?php echo $id; ?>" onclick="comentar(this)">Enviar</button>
+      <button class="btn btn-default" data-id="<?php echo $id; ?>" onclick="comentar(this), location.reload()">Enviar</button>
     </div>
 
-  <?php if($comentarios !== null): ?>
-    <?php if($comentado):?>
+  <?php if($comentarios || $comentado !== null): ?>  
     <div class="postitem_comentarios" class="form-control">
       <ul>
         <?php foreach ($comentarios as $comentario):?>
@@ -33,7 +32,6 @@
         <?php endforeach;?>
       </ul>
     </div>
-    <?php endif;?>
   <?php endif; ?>      
   </div>
 </div>

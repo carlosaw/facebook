@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Out-2021 às 20:56
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.4.23
+-- Tempo de geração: 17-Out-2021 às 22:25
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,7 +92,8 @@ INSERT INTO `posts` (`id`, `id_usuario`, `data_criacao`, `tipo`, `texto`, `url`,
 (9, 1, '2016-08-27 07:44:57', 'texto', 'Que legal Fulano...', '', 2),
 (22, 1, '2021-10-12 20:38:29', 'foto', 'Até que enfim...', '91b1addbcc2f6b6e25e8742e096c971c.png', 0),
 (23, 2, '2021-10-13 09:53:21', 'texto', 'Postagens de fulano', '', 0),
-(24, 6, '2021-10-15 14:02:05', 'foto', 'Pensando que sou Geltrânio', '086c764c3106a9cdeadf322a67854008.jpg', 0);
+(24, 6, '2021-10-15 14:02:05', 'foto', 'Pensando que sou Geltrânio', '086c764c3106a9cdeadf322a67854008.jpg', 0),
+(25, 5, '2021-10-17 15:11:41', 'foto', 'Aqui eu falei por ser zibrano', '335caeff63e5666685d5bcb73c87bf32.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -114,12 +115,22 @@ CREATE TABLE `posts_comentarios` (
 
 INSERT INTO `posts_comentarios` (`id`, `id_post`, `id_usuario`, `data_criacao`, `texto`) VALUES
 (1, 7, 1, '2016-08-27 06:56:24', 'Teste legal'),
-(2, 23, 1, '2021-10-13 15:02:37', 'Comentado no post de Fulano'),
 (3, 22, 3, '2021-10-15 10:21:06', 'Comentario de cicrano no post de Carlos Alberto'),
-(5, 8, 1, '2021-10-15 13:56:56', 'Comentei mais um post de fulkano'),
 (7, 24, 2, '2021-10-15 14:34:59', 'Palavras ao vento para gertrânio'),
-(8, 2, 2, '2021-10-15 14:36:11', 'Agora quero ver...'),
-(9, 9, 2, '2021-10-15 14:55:46', 'Fecha logo esta div...');
+(9, 9, 2, '2021-10-15 14:55:46', 'Fecha logo esta div...'),
+(17, 24, 6, '2021-10-17 11:08:26', 'Comentário de Geltrânio no post dele mesmo'),
+(18, 23, 2, '2021-10-17 15:03:50', 'Fulano dele mesmo'),
+(19, 25, 5, '2021-10-17 15:15:49', 'Eu mesmo zibrano que comentei'),
+(20, 25, 2, '2021-10-17 15:20:09', 'Aqui é fulano comentando post de zibrano'),
+(22, 9, 1, '2021-10-17 15:22:31', 'Carlos para Carlos Alberto post próprio'),
+(24, 22, 4, '2021-10-17 15:27:14', 'Alo rapaziada aqui é Beltrano'),
+(27, 22, 5, '2021-10-17 15:39:18', 'Faaala Beltrano blz?'),
+(28, 9, 5, '2021-10-17 15:40:48', 'Pra aparecer o texo n ahora'),
+(29, 8, 5, '2021-10-17 15:42:11', 'Será que agora vai???'),
+(33, 5, 5, '2021-10-17 15:57:19', 'Precisa autalizar o html do posts_comentarios'),
+(34, 6, 5, '2021-10-17 15:59:45', 'agora!'),
+(36, 7, 5, '2021-10-17 16:09:16', 'affffffffffff'),
+(37, 25, 1, '2021-10-17 16:10:23', 'Boa. Apareceu o texto ao clicar em Eniviar.');
 
 -- --------------------------------------------------------
 
@@ -139,11 +150,9 @@ CREATE TABLE `posts_likes` (
 
 INSERT INTO `posts_likes` (`id`, `id_post`, `id_usuario`) VALUES
 (2, 7, 2),
-(3, 7, 1),
-(4, 6, 1),
-(6, 2, 1),
-(7, 0, 0),
-(11, 23, 1);
+(11, 23, 1),
+(12, 23, 2),
+(13, 22, 4);
 
 -- --------------------------------------------------------
 
@@ -169,8 +178,7 @@ INSERT INTO `relacionamentos` (`id`, `usuario_de`, `usuario_para`, `status`) VAL
 (4, 1, 3, 1),
 (5, 1, 2, 1),
 (6, 3, 4, 1),
-(8, 6, 3, 1),
-(9, 6, 2, 1);
+(12, 5, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -265,25 +273,25 @@ ALTER TABLE `grupos_membros`
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `posts_comentarios`
 --
 ALTER TABLE `posts_comentarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `posts_likes`
 --
 ALTER TABLE `posts_likes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `relacionamentos`
 --
 ALTER TABLE `relacionamentos`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
