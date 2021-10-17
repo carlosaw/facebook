@@ -42,18 +42,19 @@ class Posts extends model {
 		(select usuarios.nome from usuarios where usuarios.id = posts.id_usuario) as nome,
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id) as likes,
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id and posts_likes.id_usuario = '".$_SESSION['lgsocial']."') as liked,
-		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id) as comentado,
-		
-		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id) as comentarios
+		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id and id_usuario = '".$_SESSION['lgsocial']."') as comentado,		
+		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id and id_usuario = '".$_SESSION['lgsocial']."') as comentarios
 		FROM posts
 		WHERE id_usuario IN (".implode(',', $ids).")
 		ORDER BY data_criacao DESC";
-		$sql = $this->db->query($sql);
+		$sql = $this->db->query($sql);  
 
 		if($sql->rowCount() > 0) {
 			$array = $sql->fetchAll();
 			foreach($array as $post) {
 				$post['comentarios'] = $this->buscarComentarios($post['id']);
+			/*	print_r($post['texto']);
+				exit;*/
 				$posts[] = $post;
 			}
 		}
@@ -81,9 +82,11 @@ class Posts extends model {
 	}
 
 	public function addComentario($id, $id_usuario, $txt) {
-		$sql = "INSERT INTO posts_comentarios SET id_post = '$id', id_usuario = '$id_usuario',
-		data_criacao = NOW(), texto = '$txt'";
-		$this->db->query($sql);
+		
+			$sql = "INSERT INTO posts_comentarios SET id_post = '$id', id_usuario = '$id_usuario',
+			data_criacao = NOW(), texto = '$txt'";
+			$this->db->query($sql);
+		
 	}
 
 	public function buscarComentarios($id_post) {

@@ -20,12 +20,18 @@
 .postitem_texto {
   background-color: #EEE;
   padding: 10px;
+  margin-bottom: 10px;
 }
 .postitem_comentario {
   display: none;
 }
 .postitem_comentarios {
-  border: 1px solid #ccc;
+  border: 1px solid #CCC;
+  margin-top: 10px;
+  background-color: #FFF;
+}
+.postitem_botoes {
+  margin-top: 10px;
 }
 .postitem_comentarios li {
   list-style: none;
