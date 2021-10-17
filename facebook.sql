@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Out-2021 às 22:25
+-- Tempo de geração: 18-Out-2021 às 00:39
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.4.13
 
@@ -38,7 +38,9 @@ CREATE TABLE `grupos` (
 --
 
 INSERT INTO `grupos` (`id`, `id_usuario`, `titulo`) VALUES
-(2, 1, 'Grupo de Teste');
+(2, 1, 'Grupo de Teste'),
+(10, 1, 'Grupo 2'),
+(45, 1, '');
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,8 @@ INSERT INTO `posts_comentarios` (`id`, `id_post`, `id_usuario`, `data_criacao`, 
 (33, 5, 5, '2021-10-17 15:57:19', 'Precisa autalizar o html do posts_comentarios'),
 (34, 6, 5, '2021-10-17 15:59:45', 'agora!'),
 (36, 7, 5, '2021-10-17 16:09:16', 'affffffffffff'),
-(37, 25, 1, '2021-10-17 16:10:23', 'Boa. Apareceu o texto ao clicar em Eniviar.');
+(37, 25, 1, '2021-10-17 16:10:23', 'Boa. Apareceu o texto ao clicar em Eniviar.'),
+(38, 5, 4, '2021-10-17 16:33:38', 'Conseguimos amiguinho!');
 
 -- --------------------------------------------------------
 
@@ -261,7 +264,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de tabela `grupos_membros`
@@ -279,7 +282,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de tabela `posts_comentarios`
 --
 ALTER TABLE `posts_comentarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de tabela `posts_likes`

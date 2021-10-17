@@ -23,12 +23,10 @@
   <?php if($comentarios || $comentado !== null): ?>  
     <div class="postitem_comentarios" class="form-control">
       <ul>
-        <?php foreach ($comentarios as $comentario):?>
-          
+        <?php foreach ($comentarios as $comentario):?>         
         <li>          
           <?php echo $comentario['nome'].": ".$comentario['texto'];?>
         </li>
-
         <?php endforeach;?>
       </ul>
     </div>

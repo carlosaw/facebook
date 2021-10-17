@@ -33,9 +33,9 @@
     <?php endif; ?>
 
     <div class="widget">
-        <h4>Total de Amigos</h4>
-        <?php echo $totalamigos; ?> amigo<?php echo ($totalamigos == '1')?'' : 's'; ?>          
-      </div>
+      <h4>Total de Amigos</h4>
+      <?php echo $totalamigos; ?> amigo<?php echo ($totalamigos == '1')?'' : 's'; ?>          
+    </div>
 
     <?php if(count($sugestoes) > 0): ?>
       <div class="widget">
@@ -48,5 +48,21 @@
         <?php endforeach; ?>
       </div>
     <?php endif; ?>
+
+    <div class="widget">
+      <h4>Grupos</h4>
+      <form method="POST">
+        <div class="input-group">
+          <input type="text" name="grupo" class="form-control" placeholder="Nome do Grupo" />
+          <span class="input-group-btn">
+            <input type="submit" value="Criar" class="btn btn-default" />
+          </span>
+        </div>
+      </form>
+      <?php foreach($grupos as $grupo): ?>
+        <a href="<?php echo BASE; ?>grupos/abrir/<?php echo $grupo['id']; ?>"><?php echo($grupo['titulo']); ?></a><br/>        
+      <?php endforeach; ?>
+    </div>
+
   </div>
 </div>
