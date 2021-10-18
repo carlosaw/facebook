@@ -59,9 +59,13 @@
           </span>
         </div>
       </form>
-      <?php foreach($grupos as $grupo): ?>
-        <a href="<?php echo BASE; ?>grupos/abrir/<?php echo $grupo['id']; ?>"><?php echo($grupo['titulo']); ?></a><br/>        
-      <?php endforeach; ?>
+      
+        <?php foreach($grupos as $grupo): ?>
+          <?php if($grupo): ?>
+            <a href="<?php echo BASE; ?>grupos/abrir/<?php echo $grupo['id']; ?>"><?php echo $grupo['titulo']; ?></a><br/>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      
     </div>
 
   </div>

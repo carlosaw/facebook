@@ -31,7 +31,7 @@ class homeController extends controller {
 		}
 
 		if(isset($_POST['grupo']) && !empty($_POST['grupo'])) {
-			$grupo = addslashes($POST['grupo']);
+			$grupo = addslashes($_POST['grupo']);
 			$id_grupo = $g->criar($grupo);
 			header("Location: ".BASE."grupos/abrir/".$id_grupo);
 		}
