@@ -9,14 +9,17 @@
       </form>
     </div>
 
-    <div class="feed">
-      <?php
-        foreach($feed as $postitem){
-          $this->loadView('postitem', $postitem);
-        }
-      ?>
-    </div>
-
+    <?php if($feed):?>
+      <div class="feed">
+        <?php
+          foreach($feed as $postitem){
+            $this->loadView('postitem', $postitem);
+          }
+        ?>
+      </div>
+      <?php else: ?>
+        <h3>Envie um Post agora!</h3>
+    <?php endif;?>    
   </div>
 
   <div class="col-sm-4">

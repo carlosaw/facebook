@@ -26,7 +26,6 @@ class Posts extends model {
 
     $sql = "INSERT INTO posts SET id_usuario = '$usuario', data_criacao = NOW(), tipo = '$tipo', texto = '$msg', url = '$url', id_grupo = '0'";
     $this->db->query($sql);
-    //print_r($sql);
 
   }
 
@@ -55,9 +54,13 @@ class Posts extends model {
 				$posts[] = $post;
 			}
 		}
-		/*print_r($array);
-		exit;*/
-		return $posts;
+
+		if($array) {
+			return $posts;
+		} else {
+			return $array;
+		}
+		
 	}
 
 	public function isLiked($id, $id_usuario) {

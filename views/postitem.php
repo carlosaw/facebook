@@ -20,7 +20,7 @@
       <button class="btn btn-default" data-id="<?php echo $id; ?>" onclick="comentar(this), location.reload()">Enviar</button>
     </div>
 
-    <?php if($comentarios):?>
+    <?php if($comentarios != null):?>
       <div class="postitem_comentarios">
         <ul>
         <?php foreach ($comentarios as $comentario):?>
