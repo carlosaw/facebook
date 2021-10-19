@@ -42,23 +42,21 @@ class Posts extends model {
 		(select usuarios.nome from usuarios where usuarios.id = posts.id_usuario) as nome,
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id) as likes,
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id and posts_likes.id_usuario = '".$_SESSION['lgsocial']."') as liked,
-		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id and id_usuario = '".$_SESSION['lgsocial']."') as comentado,		
-		(select texto from posts_comentarios where posts_comentarios.id_post = posts.id and id_usuario = '".$_SESSION['lgsocial']."') as comentarios
+		(select count(*) from posts_comentarios where posts_comentarios.id_post = posts.id and posts_comentarios.id_usuario = '".$_SESSION['lgsocial']."') as comentarios
 		FROM posts
 		WHERE id_usuario IN (".implode(',', $ids).")
 		ORDER BY data_criacao DESC";
 		$sql = $this->db->query($sql);  
 
-		if($sql->rowCount() > 0) {
+		if($sql->rowCount() > 0){
 			$array = $sql->fetchAll();
-			foreach($array as $post) {
+			foreach ($array as $post) {
 				$post['comentarios'] = $this->buscarComentarios($post['id']);
-				/*print_r($post['comentarios']);
-				exit;*/
 				$posts[] = $post;
 			}
 		}
-		
+		/*print_r($array);
+		exit;*/
 		return $posts;
 	}
 
@@ -91,19 +89,12 @@ class Posts extends model {
 
 	public function buscarComentarios($id_post) {
 		$array = array();
-
-		$sql = "SELECT
-							*,
-							(select usuarios.nome from usuarios where usuarios.id = posts_comentarios.id_usuario) AS nome,
-							texto
-							FROM posts_comentarios
-							WHERE id_post = '$id_post'";
-		$sql = $this->db->query($sql);
+		$sql = "SELECT *,
+								 (select usuarios.nome from usuarios where usuarios.id = posts_comentarios.id_usuario) AS nome,
+								 texto FROM posts_comentarios WHERE id_post = '$id_post'";
+			$sql = $this->db->query($sql);
 			$array = $sql->fetchAll();
-			/*print_r($array);
-			exit;*/
 		return $array;
-	
-	}
+	 }
 	 
 }

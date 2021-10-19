@@ -20,16 +20,19 @@
       <button class="btn btn-default" data-id="<?php echo $id; ?>" onclick="comentar(this), location.reload()">Enviar</button>
     </div>
 
-  <?php if($comentarios || $comentado !== null): ?>  
-    <div class="postitem_comentarios" class="form-control">
-      <ul>
-        <?php foreach ($comentarios as $comentario):?>         
-        <li>          
+    <?php if($comentarios):?>
+      <div class="postitem_comentarios">
+        <ul>
+        <?php foreach ($comentarios as $comentario):?>
+        <li>
           <?php echo $comentario['nome'].": ".$comentario['texto'];?>
         </li>
+        <div class="line"></div>
         <?php endforeach;?>
-      </ul>
-    </div>
-  <?php endif; ?>      
+        </ul>
+        
+      </div>
+    <?php endif;?>
+
   </div>
 </div>

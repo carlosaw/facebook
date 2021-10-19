@@ -35,6 +35,11 @@
 }
 .postitem_comentarios li {
   list-style: none;
+  padding: 5px;
+}
+.line {
+  height: 1px;
+  background-color: #CCC;
 }
 .postitem_comentarios ul {
   margin-top: 0;
