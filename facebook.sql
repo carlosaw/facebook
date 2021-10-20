@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Out-2021 às 22:46
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.4.23
+-- Tempo de geração: 20-Out-2021 às 03:28
+-- Versão do servidor: 10.4.17-MariaDB
+-- versão do PHP: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,7 @@ CREATE TABLE `grupos` (
 --
 
 INSERT INTO `grupos` (`id`, `id_usuario`, `titulo`) VALUES
-(15, 1, 'Grupo de Carlos');
+(16, 1, 'Grupo de Teste');
 
 -- --------------------------------------------------------
 
@@ -51,6 +51,14 @@ CREATE TABLE `grupos_membros` (
   `id_grupo` int(11) DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `grupos_membros`
+--
+
+INSERT INTO `grupos_membros` (`id`, `id_grupo`, `id_usuario`) VALUES
+(8, 16, 1),
+(9, 16, 2);
 
 -- --------------------------------------------------------
 
@@ -75,7 +83,9 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `id_usuario`, `data_criacao`, `tipo`, `texto`, `url`, `id_grupo`) VALUES
 (2, 1, '2016-08-27 05:57:58', 'foto', 'Teste de envio de imagem com texto...', '91b1addbcc2f6b6e25e8742e096c971c.png', 0),
 (28, 2, '2021-10-19 09:40:14', 'texto', 'Mandando', '', 0),
-(30, 6, '2021-10-19 16:28:52', 'foto', 'Post de Geltranio.', '6359bd97870d72aca75df4eaf8c739a4.jpg', 0);
+(30, 6, '2021-10-19 16:28:52', 'foto', 'Post de Geltranio.', '6359bd97870d72aca75df4eaf8c739a4.jpg', 0),
+(31, 2, '2021-10-19 21:23:42', 'texto', 'Teste de postagem no grupo de Carlos Alberto.', '', 16),
+(32, 1, '2021-10-19 21:25:00', 'texto', 'Que legal fulano', '', 16);
 
 -- --------------------------------------------------------
 
@@ -100,7 +110,8 @@ INSERT INTO `posts_comentarios` (`id`, `id_post`, `id_usuario`, `data_criacao`, 
 (55, 28, 2, '2021-10-19 16:03:41', 'Maravilha.'),
 (56, 28, 1, '2021-10-19 16:06:31', 'arararar'),
 (57, 2, 1, '2021-10-19 16:10:32', 'Ora, ora...'),
-(58, 28, 2, '2021-10-19 16:16:06', 'Valeu Carlão conseguimos!');
+(58, 28, 2, '2021-10-19 16:16:06', 'Valeu Carlão conseguimos!'),
+(59, 30, 6, '2021-10-19 19:58:45', 'Comentei mesmo e daí?');
 
 -- --------------------------------------------------------
 
@@ -113,6 +124,13 @@ CREATE TABLE `posts_likes` (
   `id_post` int(11) DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `posts_likes`
+--
+
+INSERT INTO `posts_likes` (`id`, `id_post`, `id_usuario`) VALUES
+(12, 30, 6);
 
 -- --------------------------------------------------------
 
@@ -215,31 +233,31 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `grupos_membros`
 --
 ALTER TABLE `grupos_membros`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `posts_comentarios`
 --
 ALTER TABLE `posts_comentarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de tabela `posts_likes`
 --
 ALTER TABLE `posts_likes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `relacionamentos`
