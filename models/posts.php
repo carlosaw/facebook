@@ -1,7 +1,7 @@
 <?php 
 class Posts extends model {
 
-  public function addPost($msg, $foto) {
+  public function addPost($msg, $foto, $id_grupo = '0') {
     $usuario = $_SESSION['lgsocial'];
 		$tipo = 'texto';
 		$url = '';
@@ -24,12 +24,12 @@ class Posts extends model {
 			}
     }
 
-    $sql = "INSERT INTO posts SET id_usuario = '$usuario', data_criacao = NOW(), tipo = '$tipo', texto = '$msg', url = '$url', id_grupo = '0'";
+    $sql = "INSERT INTO posts SET id_usuario = '$usuario', data_criacao = NOW(), tipo = '$tipo', texto = '$msg', url = '$url', id_grupo = '$id_grupo'";
     $this->db->query($sql);
 
   }
 
-	public function getFeed() {
+	public function getFeed($id_grupo = '0') {
 		$array = array();
 
 		$r = new Relacionamentos();
@@ -43,7 +43,7 @@ class Posts extends model {
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id and posts_likes.id_usuario = '".$_SESSION['lgsocial']."') as liked,
 		(select count(*) from posts_comentarios where posts_comentarios.id_post = posts.id and posts_comentarios.id_usuario = '".$_SESSION['lgsocial']."') as comentarios
 		FROM posts
-		WHERE id_usuario IN (".implode(',', $ids).")
+		WHERE id_usuario IN (".implode(',', $ids).") AND id_grupo = '$id_grupo'
 		ORDER BY data_criacao DESC";
 		$sql = $this->db->query($sql);  
 
