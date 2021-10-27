@@ -28,7 +28,7 @@
 .postitem_comentarios {
   border: 1px solid #CCC;
   margin-top: 10px;
-  background-color: #FFF;
+  background-color: rgb(240, 106, 106);
 }
 .postitem_botoes {
   margin-top: 10px;
@@ -45,7 +45,4 @@
   margin-top: 0;
   margin-bottom: 0px;
   padding: 5px;
-}
-.postitem_comentarios_hidden {
-  display: none;
 }

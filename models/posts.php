@@ -42,6 +42,7 @@ class Posts extends model {
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id) as likes,
 		(select count(*) from posts_likes where posts_likes.id_post = posts.id and posts_likes.id_usuario = '".$_SESSION['lgsocial']."') as liked,
 		(select count(*) from posts_comentarios where posts_comentarios.id_post = posts.id and posts_comentarios.id_usuario = '".$_SESSION['lgsocial']."') as comentarios
+		
 		FROM posts
 		WHERE id_usuario IN (".implode(',', $ids).") AND id_grupo = '$id_grupo'
 		ORDER BY data_criacao DESC";
@@ -54,7 +55,8 @@ class Posts extends model {
 				$posts[] = $post;
 			}
 		}
-
+		/*print_r($array);
+		exit;*/
 		if($array) {
 			return $posts;
 		} else {
@@ -64,7 +66,7 @@ class Posts extends model {
 	}
 
 	public function isLiked($id, $id_usuario) {
-		$sql = "select * from posts_likes where id_post = '$id' and id_usuario = '$id_usuario'";
+		$sql = "SELECT * FROM posts_likes WHERE id_post = '$id' AND id_usuario = '$id_usuario'";
 		$sql = $this->db->query($sql);
 
 		if($sql->rowCount() > 0) {
