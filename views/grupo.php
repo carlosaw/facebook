@@ -8,6 +8,7 @@
       <input type="submit" value="Enviar" class="btn btn-default" />
     </form>
   </div>
+
   <?php if($feed):?>
     <div class="feed">
       <?php
@@ -16,7 +17,7 @@
         }
       ?>
     </div>
-    <?php else: ?>
+  <?php else: ?>
       <h3>Envie um Post agora!</h3>
   <?php endif;?>
 

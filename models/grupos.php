@@ -1,10 +1,12 @@
 <?php 
 class Grupos extends model {
 
-	public function getGrupos() {
+	public function getGrupos($id_grupo = '0') {
     $array = array();
 
-    $sql = "SELECT id, titulo FROM grupos";
+    $sql = "SELECT 
+    id, titulo     
+    FROM grupos";
     $sql = $this->db->query($sql);
 
     if($sql->rowCount() > 0) {
@@ -39,7 +41,7 @@ class Grupos extends model {
     if($sql->rowCount() > 0) {
       $array = $sql->fetch();
     }
-
+    //print_r($array);
     return $array;
   }
   // Verifica se é membro do grupo

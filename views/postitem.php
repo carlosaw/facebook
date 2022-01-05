@@ -30,7 +30,6 @@
         <div class="line"></div>
         <?php endforeach;?>
         </ul>
-        
       </div>
     <?php endif;?>
 
